@@ -170,11 +170,11 @@
   padding: 2px;
   background: linear-gradient(
     90deg,
-    #ea580c 0%,
-    #fb923c 25%,
-    #ea580c 50%,
-    #fb923c 75%,
-    #ea580c 100%
+    #06b6d4 0%, 
+    #22d3ee 25%, 
+    #06b6d4 50%, 
+    #22d3ee 75%, 
+    #06b6d4 100% 
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

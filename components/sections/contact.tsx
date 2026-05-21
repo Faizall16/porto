@@ -89,7 +89,7 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get in <span className="text-primary-orange">Touch</span>
+            Get in <span className="text-primary-cyan">Touch</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how we can work together
@@ -109,15 +109,11 @@ export default function Contact() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-primary-orange" />
-                  <span>pragusga25@gmail.com</span>
+                  <Mail className="w-5 h-5 text-primary-cyan" />
+                  <span>faizalakhmad16@gmail.com</span>
                 </div>
-                {/* <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-primary-orange" />
-                  <span>+1 (555) 123-4567</span>
-                </div> */}
                 <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-primary-orange" />
+                  <MapPin className="w-5 h-5 text-primary-cyan" />
                   <span>Jakarta, Indonesia</span>
                 </div>
               </div>
@@ -191,7 +187,7 @@ export default function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-primary-orange hover:bg-primary-orange-dark"
+                  className="w-full bg-primary-cyan hover:bg-primary-cyan-dark"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (

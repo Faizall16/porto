@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -23,24 +23,37 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">
-                About <span className="text-primary-orange">Me</span>
+                About <span className="text-primary-cyan">Me</span>
               </h2>
               <div className="text-lg text-muted-foreground space-y-4">
                 <p>
-                  Hi! I'm{' '}
-                  <span className="text-primary-orange font-semibold">
-                    Taufik Pragusga
+                  Hi! I'm{" "}
+                  <span className="text-primary-cyan font-semibold">
+                    Akhmad Faizal
                   </span>
-                  , a passionate software engineer with a keen eye for detail
-                  and a drive for creating impactful solutions. With expertise
-                  in both frontend and backend development, I bring ideas to
-                  life through clean, efficient code.
+                  , an experienced <strong>Front End Engineer</strong>{" "}
+                  specializing in architecting high-performance,
+                  industrial-grade web applications. I deeply focus on the{" "}
+                  <strong>React ecosystem (Next.js & TypeScript)</strong>{" "}
+                  leveraging <strong>Clean Architecture</strong> principles and
+                  advanced state management like
+                  <strong> Tanstack Query and Zustand</strong> to build
+                  scalable, type-safe systems.
                 </p>
                 <p>
-                  My journey in tech has equipped me with a diverse skill set
-                  and the ability to tackle complex challenges head-on. I
-                  believe in writing maintainable code that scales and delivers
-                  exceptional user experiences.
+                  At <strong>Wings Group Indonesia</strong>, i architect and
+                  engineer centralized{" "}
+                  <strong>Master Data Givernance (MDG) </strong>
+                  modules that seamlessly integrate with <strong>SAP</strong>.
+                  My journey also includes developing mission-critical system
+                  like <strong>Fleet Management System (FMS)</strong> with
+                  real-time geospatial data, a{" "}
+                  <strong>
+                    Workshop Monitoring APP (001M Plant Management)
+                  </strong>{" "}
+                  and CRM platforms. I thrive in driving cross-functional
+                  collaboration and turning rigid enterprise data structures
+                  into high-performance, user-friendly experiences.
                 </p>
               </div>
             </div>
@@ -48,14 +61,14 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square relative shine-border">
                 <Image
-                  src="/logo.png"
+                  src="/My_logo.png"
                   alt="Logo"
                   fill
-                  className="object-contain p-3"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary-orange/10 to-transparent rounded-full animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary-cyan/10 to-transparent rounded-full animate-pulse" />
             </div>
           </div>
         </motion.div>

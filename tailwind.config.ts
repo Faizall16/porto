@@ -18,10 +18,10 @@ const config: Config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
-          orange: {
-            light: '#FF7043',
-            DEFAULT: '#FF5722',
-            dark: '#F4511E'
+          cyan: {
+            light: '#4DFED1',
+            DEFAULT: '#08A4A7',
+            dark: '#008B8B'
           }
         },
         secondary: {

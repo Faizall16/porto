@@ -1,96 +1,50 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Code2, Server, Cloud, Wrench, Text, Database } from 'lucide-react';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Code2, Server, Cloud, Wrench, Text, Database } from "lucide-react";
 
 const skillCategories = [
   {
-    title: 'Frontend',
+    title: "Frontend",
     icon: Code2,
     skills: [
-      'React',
-      'Next.js',
-      'Tailwind CSS',
-      'HTML/CSS',
-      'Cypress',
-      'Playwright',
-      'React Query',
-      'Redux',
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "HTML/CSS",
+      "Cypress",
+      "Playwright",
+      "React Query",
+      "Redux",
+      "Tanstack Query",
     ],
   },
   {
-    title: 'Backend',
+    title: "Backend",
     icon: Server,
-    skills: [
-      'Node.js',
-      'Express.js',
-      'Nest.js',
-      'Fastify',
-      'Flask',
-      'FastAPI',
-      'Django',
-      'Spring Boot',
-      'REST/GraphQL',
-      'Kafka',
-    ],
+    skills: ["Node.js", "Express.js", "Nest.js", "REST/GraphQL", "Kafka"],
   },
   {
-    title: 'DevOps',
+    title: "DevOps",
     icon: Cloud,
-    skills: [
-      'Docker',
-      'Kubernetes',
-      'AWS',
-      'GCP',
-      'Azure',
-      'CI/CD',
-      'Cloudflare',
-      'Digital Ocean',
-    ],
+    skills: ["Docker", "Kubernetes", "AWS", "GCP", "Azure", "CI/CD"],
   },
   {
-    title: 'Databases',
+    title: "Databases",
     icon: Database,
-    skills: [
-      'PostgreSQL',
-      'MySQL',
-      'SQLite',
-      'MongoDB',
-      'Redis',
-      'DynamoDB',
-      'Elasticsearch',
-      'Firebase',
-    ],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Firebase"],
   },
   {
-    title: 'Tools',
+    title: "Tools",
     icon: Wrench,
-    skills: [
-      'VS Code',
-      'Postman',
-      'Git',
-      'Jira',
-      'Prometheus',
-      'Grafana',
-      'Datadog',
-      'Jest',
-    ],
+    skills: ["VS Code", "Postman", "Git", "Jira", "Figma", "Cursor", "Notion"],
   },
 
   {
-    title: 'Languages',
+    title: "Languages",
     icon: Text,
-    skills: [
-      'Indonesian',
-      'English',
-      'JavaScript',
-      'TypeScript',
-      'Python',
-      'Go',
-      'Java',
-      'Rust',
-    ],
+    skills: ["Indonesian", "English", "JavaScript", "TypeScript", "Python"],
   },
 ];
 
@@ -111,7 +65,7 @@ export default function Skills() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Technical <span className="text-primary-orange">Skills</span>
+            Technical <span className="text-primary-cyan">Skills</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit that enables me to build robust and scalable
@@ -135,8 +89,8 @@ export default function Skills() {
                 className="glass rounded-xl p-6 border border-border/50 shadow-lg hover:shadow-xl transition-all bg-card/50 w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1rem)] xl:w-[calc(30%-1rem)] min-w-[280px] max-w-[400px]"
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-2 rounded-lg bg-primary-orange/10">
-                    <Icon className="w-6 h-6 text-primary-orange" />
+                  <div className="p-2 rounded-lg bg-primary-cyan/10">
+                    <Icon className="w-6 h-6 text-primary-cyan" />
                   </div>
                   <h3 className="text-xl font-semibold ml-3">
                     {category.title}
@@ -150,7 +104,7 @@ export default function Skills() {
                         key={skill}
                         className="text-muted-foreground flex items-center"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary-orange/70 mr-2" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan/70 mr-2" />
                         {skill}
                       </li>
                     ))}
@@ -162,7 +116,7 @@ export default function Skills() {
                         key={skill}
                         className="text-muted-foreground flex items-center"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary-orange/70 mr-2" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan/70 mr-2" />
                         {skill}
                       </li>
                     ))}

@@ -30,7 +30,7 @@ export default function ParticlesComponent({ className }: ParticlesProps) {
             },
           },
           color: {
-            value: '#ea580c',
+            value: '#06b6d4',
           },
           opacity: {
             value: 0.4,

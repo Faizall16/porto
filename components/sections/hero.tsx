@@ -1,22 +1,17 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
-import { Download, ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
-import Particles from '@/components/particles';
+import { Download, ArrowRight, Github, Twitter, Linkedin } from "lucide-react";
+import Particles from "@/components/particles";
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com/pragusga25' },
+  { name: "GitHub", icon: Github, href: "https://github.com/Faizall16" },
   {
-    name: 'X (Twitter)',
-    icon: Twitter,
-    href: 'https://twitter.com/pragusga',
-  },
-  {
-    name: 'LinkedIn',
+    name: "LinkedIn",
     icon: Linkedin,
-    href: 'https://linkedin.com/in/pragusga',
+    href: "https://www.linkedin.com/in/akhmadfaizal",
   },
 ];
 
@@ -35,10 +30,10 @@ export default function Hero() {
           className="space-y-8"
         >
           <div className="text-4xl md:text-6xl font-bold">
-            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-400 leading-tight">
-              Transforming Ideas into
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-cyan-400 leading-tight">
+              Turning Complex Ideas into Simple
               <br />
-              Digital Reality
+              Beautiful Web Experiences
             </h1>
           </div>
 
@@ -48,8 +43,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Full-stack developer crafting elegant solutions to complex problems.
-            Let's build something extraordinary together.
+            Frontend Engineer who loves creating intuitive, responsive, and
+            impactful digital solutions with modern tools and clean code.
           </motion.p>
 
           <motion.div
@@ -60,10 +55,8 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="bg-orange-600 hover:bg-orange-700 resume-btn"
-              onClick={() =>
-                window.open('/Taufik_Pragusga_Resume.pdf', '_blank')
-              }
+              className="bg-cyan-600 hover:bg-cyan-700 resume-btn"
+              onClick={() => window.open("/Akhmad-Faizal-Resume.pdf", "_blank")}
             >
               <Download className="mr-2 h-4 w-4" />
               Download Resume
@@ -72,7 +65,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
               asChild
-              className="border-beam group hover:text-orange-600 transition-colors"
+              className="border-beam group hover:text-cyan-600 transition-colors"
             >
               <a href="#contact">
                 Let's Talk
@@ -95,7 +88,7 @@ export default function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary-orange transform hover:scale-110 transition-all"
+                  className="text-muted-foreground hover:text-primary-cyan transform hover:scale-110 transition-all"
                   aria-label={social.name}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
