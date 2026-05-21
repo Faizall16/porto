@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Github, Twitter, Linkedin } from 'lucide-react';
-import Particles from '@/components/particles';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
+import Particles from "@/components/particles";
+import Link from "next/link";
+import Image from "next/image";
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com/Faizall16' },
+  { name: "GitHub", icon: Github, href: "https://github.com/Faizall16" },
   {
-    name: 'LinkedIn',
+    name: "LinkedIn",
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/akhmadfaizal',
+    href: "https://www.linkedin.com/in/akhmadfaizal",
   },
 ];
 
@@ -27,11 +28,11 @@ export default function BannerPage() {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ type: 'spring', duration: 1 }}
+          transition={{ type: "spring", duration: 1 }}
           className="mb-8 p-2 rounded-full border-2 border-primary-cyan shine-border"
         >
           <div className="w-32 h-32 rounded-full overflow-hidden">
-            <img
+            <Image
               src="https://github.com/pragusga25.png"
               alt="Profile"
               className="w-full h-full object-cover"
@@ -64,12 +65,12 @@ export default function BannerPage() {
           className="flex gap-4 mb-12"
         >
           {[
-            'React',
-            'Next.js',
-            'Node.js',
-            'TypeScript',
-            'Python',
-            'Golang',
+            "React",
+            "Next.js",
+            "Node.js",
+            "TypeScript",
+            "Python",
+            "Golang",
           ].map((skill) => (
             <div
               key={skill}
