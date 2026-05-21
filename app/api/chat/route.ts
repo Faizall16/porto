@@ -1,30 +1,38 @@
-import { streamText, convertToCoreMessages } from 'ai';
+import { streamText, convertToCoreMessages } from "ai";
 
-import { createVertex } from '@ai-sdk/google-vertex';
-import { EXPERIENCES, PROJECTS } from '@/app/constants';
-import { ratelimit } from '@/lib/rate-limit';
-import { NextResponse } from 'next/server';
-import xss from 'xss';
+import { createVertex } from "@ai-sdk/google-vertex";
+import { EXPERIENCES, PROJECTS } from "@/app/constants";
+import { initializeRateLimit } from "@/lib/rate-limit";
+import { NextResponse } from "next/server";
+import xss from "xss";
 
 type UIMessage = {
-  role: 'system' | 'user' | 'assistant' | 'function' | 'data' | 'tool';
+  role: "system" | "user" | "assistant" | "function" | "data" | "tool";
   content: string;
 };
 
 // Force dynamic rendering
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
-const vertex = createVertex({
-  project: process.env.GOOGLE_PROJECT_ID,
-  location: process.env.GOOGLE_REGION ?? 'us-central1',
-  googleAuthOptions: {
-    credentials: JSON.parse(
-      Buffer.from(process.env.GOOGLE_CREDENTIALS ?? '{}', 'base64').toString(
-        'utf-8'
-      )
-    ),
-  },
-});
+let vertexClient: ReturnType<typeof createVertex> | null = null;
+
+function initializeVertex() {
+  if (vertexClient) return vertexClient;
+
+  vertexClient = createVertex({
+    project: process.env.GOOGLE_PROJECT_ID,
+    location: process.env.GOOGLE_REGION ?? "us-central1",
+    googleAuthOptions: {
+      credentials: JSON.parse(
+        Buffer.from(process.env.GOOGLE_CREDENTIALS ?? "{}", "base64").toString(
+          "utf-8",
+        ),
+      ),
+    },
+  });
+
+  return vertexClient;
+}
 
 const systemPrompt = `You are a virtual assistant for Akhmad Faizal, a Software Engineer. Here's information about him:
 
@@ -84,11 +92,12 @@ You should:
 Remember: You represent Faizal professionally.`;
 
 export async function POST(req: Request) {
-  const identifier = req.headers.get('x-forwarded-for') || 'unknown';
+  const identifier = req.headers.get("x-forwarded-for") || "unknown";
 
   try {
+    const ratelimit = initializeRateLimit();
     const { success, limit, remaining } = await ratelimit.limit(
-      `route:chat:${identifier}`
+      `route:chat:${identifier}`,
     );
 
     console.log({
@@ -101,7 +110,7 @@ export async function POST(req: Request) {
     if (!success) {
       return new NextResponse(
         `You have exceeded the rate limit. You can try again in later.`,
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -116,20 +125,20 @@ export async function POST(req: Request) {
     });
 
     console.log(
-      'messages: ',
-      messages?.filter((message) => message.role === 'user')
+      "messages: ",
+      messages?.filter((message) => message.role === "user"),
     );
 
     const result = await streamText({
       maxSteps: 5,
-      model: vertex('gemini-1.5-flash-002'),
+      model: initializeVertex()("gemini-1.5-flash-002"),
       system: systemPrompt,
       messages: convertToCoreMessages(messages),
     });
 
     return result.toDataStreamResponse();
   } catch (error) {
-    console.error('Rate limiting error:', error);
-    return new NextResponse('Internal server error', { status: 500 });
+    console.error("Rate limiting error:", error);
+    return new NextResponse("Internal server error", { status: 500 });
   }
 }
