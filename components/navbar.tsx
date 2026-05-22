@@ -62,9 +62,9 @@ export function Navbar() {
     <header className="fixed w-full top-0 z-50 border-b bg-background/80 backdrop-blur-sm">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center">
-          <Image src="/My_logo.png" alt="Logo" width={42} height={42} />
+          <Image src="/My_logo.png" alt="My Logo" width={42} height={42} />
           <Link href="/" passHref className="text-xl ml-2 font-bold">
-            Faizal
+            Faizal Porto
           </Link>
         </div>
 

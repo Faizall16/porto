@@ -9,11 +9,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { Analytics } from "@vercel/analytics/react";
 import { ChatBot } from "@/components/chat-bot";
+import Banner from "../public/bannerp.jpeg";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Akhmad Faizal | Software Engineer",
+  title: "Akhmad Faizal | Frontend Engineer",
+  icons: {
+    icon: "/My_logo.png", // Mengarah ke folder public/logo.png
+  },
   description:
     "Professional portfolio of Akhmad Faizal, a software engineer specializing in front-end engineer",
   keywords: [
@@ -22,15 +26,15 @@ export const metadata: Metadata = {
     "full-stack developer",
     "web development",
     "portfolio",
-    "front end engineer",
-    "front end developer",
+    "frontend engineer",
+    "frontend developer",
   ],
   authors: [{ name: "Akhmad Faizal" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://faizal.com",
-    title: "Akhmad Faizal | Software Engineer",
+    title: "Akhmad Faizal | Frontend Engineer",
     description:
       "Portfolio of Akhmad Faizal, software engineer with expertise in web development, UI engineering, and building scalable digital solutions.",
     siteName: "Akhmad Faizal Portfolio",

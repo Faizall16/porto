@@ -62,7 +62,7 @@ export default function About() {
               <div className="aspect-square relative shine-border">
                 <Image
                   src="/My_logo.png"
-                  alt="Logo"
+                  alt="My Logo"
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
