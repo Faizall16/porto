@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { type z } from 'zod';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { type z } from "zod";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import {
   Form,
   FormControl,
@@ -18,13 +18,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Mail, MapPin, Send, Loader2 } from 'lucide-react';
-import { contactFormSchema } from '@/lib/validations/contact';
+} from "@/components/ui/form";
+import { Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { contactFormSchema } from "@/lib/validations/contact";
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
-// Replace with your form submission endpoint
-const FORM_ENDPOINT = 'https://formspree.io/f/xzzbdnpw';
+const FORM_ENDPOINT = "/api/contact";
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -38,9 +37,9 @@ export default function Contact() {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     },
   });
 
@@ -48,9 +47,9 @@ export default function Contact() {
     try {
       setIsSubmitting(true);
       const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -58,20 +57,20 @@ export default function Contact() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.message || 'Something went wrong!');
+        throw new Error(result.message || "Something went wrong!");
       }
 
       toast({
-        title: 'Success!',
-        description: 'Your message has been sent successfully.',
+        title: "Success!",
+        description: "Your message has been sent successfully.",
       });
 
       form.reset();
     } catch (error) {
       toast({
-        title: 'Failed to send message',
-        description: 'Please try again later.',
-        variant: 'destructive',
+        title: "Failed to send message",
+        description: "Please try again later.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -96,7 +95,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -125,7 +124,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <Form {...form}>
+            {/* <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="glass rounded-xl p-6 border border-border/50 shadow-lg space-y-4"
@@ -203,7 +202,7 @@ export default function Contact() {
                   )}
                 </Button>
               </form>
-            </Form>
+            </Form> */}
           </motion.div>
         </div>
       </div>
