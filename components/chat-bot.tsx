@@ -140,7 +140,7 @@ export function ChatBot() {
                   {messages.length === 0 ? (
                     <p className="text-center text-muted-foreground text-sm">
                       👋 Hi! I'm your virtual assistant. Ask me anything about
-                      Taufik!
+                      Faizal!
                     </p>
                   ) : (
                     messages.map((message) => (
